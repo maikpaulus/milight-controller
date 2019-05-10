@@ -1,0 +1,5 @@
+node_modules
+deployment/deployment.sh
+.vscode
+lib/**/*.js
+config/*.json
