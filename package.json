@@ -7,27 +7,25 @@
   "license": "ISC",
   "dependencies": {
     "amqplib": "^0.6.0",
-    "config": "^3.1.0",
+    "config": "^3.3.2",
     "debug": "^4.2.0",
-    "forever": "^0.15.3",
-    "prettier": "^1.15.2"
+    "forever": "^3.0.2"
   },
   "devDependencies": {
     "@types/amqplib": "^0.5.13",
     "@types/config": "0.0.36",
     "@types/debug": "^4.1.5",
-    "@types/node": "^10.12.10",
+    "@types/node": "^10.17.35",
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "^2.22.1",
     "husky": "^1.2.0",
     "nodemon": "^1.18.7",
+    "prettier": "^1.19.1",
     "ts-loader": "^5.3.0",
     "typescript": "^3.1.6",
-    "typescript-eslint-parser": "^21.0.1",
-    "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2"
+    "typescript-eslint-parser": "^21.0.1"
   },
   "scripts": {
     "start:development": "DEBUG=service:* ./node_modules/.bin/nodemon dist/index.js",
