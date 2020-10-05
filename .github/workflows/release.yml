@@ -28,6 +28,3 @@ jobs:
 
       - name: Push new version to repository
         run: git push origin master && git push --tags
-
-      - name: Save new version to env variable
-        run: echo ::set-env name=RELEASE_VERSION::$(cat package.json | grep version | sed 's/[^.0-9]//g')
