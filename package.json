@@ -28,12 +28,12 @@
     "typescript-eslint-parser": "^21.0.1"
   },
   "scripts": {
-    "start:development": "DEBUG=service:* ./node_modules/.bin/nodemon dist/index.js",
+    "start:development": "DEBUG=service:* nodemon dist/index.js",
     "start:deployment": "./deployment/deployment.sh",
-    "start:production": "DEBUG=service:* ./node_modules/.bin/forever --append --uid milight-controller start dist/index.js",
-    "stop:production": "./node_modules/.bin/forever stop milight-controller",
-    "build": "./node_modules/.bin/tsc -p .",
-    "build:watch": "./node_modules/.bin/tsc -p . --watch",
+    "start:production": "DEBUG=service:* forever --append --uid milight-controller start dist/index.js",
+    "stop:production": "forever stop milight-controller",
+    "build": "tsc -p .",
+    "build:watch": "tsc -p . --watch",
     "prettier": "prettier --ignore-path ./settings/prettier/.prettierignore --config ./prettier.config.js --write '**/*.{ts,js}'",
     "eslint": "eslint --config ./settings/eslint/eslint.config.js '**/*.ts'",
     "check": "prettier && eslint"
