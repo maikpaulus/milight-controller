@@ -1,6 +1,6 @@
 {
   "name": "milight-controller",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "milight controller with message queue adapter to control milight leds",
   "main": "index.js",
   "author": "Maik Paulus <work@maikpaulus.com>",
