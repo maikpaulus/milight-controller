@@ -36,7 +36,7 @@
     "stop:production": "./node_modules/.bin/forever stop milight-controller",
     "build": "./node_modules/.bin/tsc -p .",
     "build:watch": "./node_modules/.bin/tsc -p . --watch",
-    "prettier": "prettier --ignore-path ./settings/prettier/.prettierignore --config ./settings/prettier/prettier.config.js --write '**/*.{ts,js}'",
+    "prettier": "prettier --ignore-path ./settings/prettier/.prettierignore --config ./prettier.config.js --write '**/*.{ts,js}'",
     "eslint": "eslint --config ./settings/eslint/eslint.config.js '**/*.ts'",
     "check": "prettier && eslint"
   },

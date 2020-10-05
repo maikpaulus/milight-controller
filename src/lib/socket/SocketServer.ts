@@ -1,6 +1,6 @@
 import debug from 'debug';
-import { SocketOptions } from "../../types";
-import MessageInterface from "../message/Message.interface";
+import { SocketOptions } from '../../types';
+import MessageInterface from '../message/Message.interface';
 import { Socket } from 'dgram';
 
 const dbg = debug('service:socket');
@@ -19,10 +19,7 @@ export class SocketServer {
 
   private messageCallback: any;
 
-  constructor(
-    socket: any,
-    opts: SocketOptions
-  ) {
+  constructor(socket: any, opts: SocketOptions) {
     this.port = opts.port;
     this.targetHost = opts.targetHost;
     this.targetPort = opts.targetPort;
@@ -40,16 +37,18 @@ export class SocketServer {
   }
 
   public send(
-    message: MessageInterface, opts: {
-    timeout?: number
-    attempts?: number
-  } = {}): void {
+    message: MessageInterface,
+    opts: {
+      timeout?: number;
+      attempts?: number;
+    } = {}
+  ): void {
     if (!this.targetHost || !this.targetPort) {
       throw new Error('Target configuration is not available.');
     }
 
-    const timeout = opts.timeout || 0;
-    const attempts = opts.attempts || 2;
+    const timeout = opts.timeout || 0;
+    const attempts = opts.attempts || 2;
 
     const rawMsg = message.getMessage();
 
@@ -63,7 +62,7 @@ export class SocketServer {
           this.targetHost,
           (err) => {
             if (err) {
-              dbg(`socket error: ${err.message}`)
+              dbg(`socket error: ${err.message}`);
             }
           }
         );
@@ -72,7 +71,7 @@ export class SocketServer {
   }
 
   public close(): void {
-    dbg('closing socket if exists...'); 
+    dbg('closing socket if exists...');
     if (this.socket) {
       this.socket.close();
     }

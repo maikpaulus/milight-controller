@@ -13,13 +13,15 @@ import { BrokerMessage } from '../../types';
  * Factory zum Erstellen von Messages aus Commands
  */
 export class MessageFactory {
-  static createMessageFrom = function(brokerMessage: BrokerMessage): ControlMessage[] {
+  static createMessageFrom = function(
+    brokerMessage: BrokerMessage
+  ): ControlMessage[] {
     switch (brokerMessage.action) {
       case 'licht.an':
         return [
-          new BrightnessMessage(brokerMessage.payload?.brightness || 100),
+          new BrightnessMessage(brokerMessage.payload?.brightness || 100),
           new LightOnMessage()
-        ]
+        ];
 
       case 'licht.aus':
         return [new LightOffMessage()];

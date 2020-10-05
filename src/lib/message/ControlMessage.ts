@@ -37,10 +37,9 @@ export class ControlMessage implements MessageInterface {
 
     const checksum = message
       .slice(-11)
-      .reduce(
-        (accumulator: number, current: number): number => {
-          return accumulator + current
-        }, 0);
+      .reduce((accumulator: number, current: number): number => {
+        return accumulator + current;
+      }, 0);
 
     return Buffer.from([...message, checksum]);
   }

@@ -40,7 +40,10 @@ export default class BrokerService {
 
   public subscribeToCommands(
     commandType: string,
-    commandCallback: (msg: AMQP.ConsumeMessage | null, ackCallback: (ack: boolean) => void) => void
+    commandCallback: (
+      msg: AMQP.ConsumeMessage | null,
+      ackCallback: (ack: boolean) => void
+    ) => void
   ): void {
     if (!this.connected) {
       dbg('broker is not connected. you can not subscribe to a queue.');
@@ -49,12 +52,12 @@ export default class BrokerService {
 
     this.channel.consume(
       `commands.${commandType}`,
-      msg => {
+      (msg) => {
         if (!msg) {
           return;
         }
 
-        commandCallback(msg, ack => {
+        commandCallback(msg, (ack) => {
           dbg(`message was acknowleged: ${ack}`);
           if (ack) {
             this.channel.ack(msg);
